@@ -24,7 +24,7 @@ function usage {
     echo "       -t: File containing ip addresses to scan. This option is required."
     echo "       -p: Protocol. Defaults to tcp"
     echo "       -i: Network interface. Defaults to eth0"
-    echo "       -n: NMAP options (-A, -O, etc). Defaults to no options."
+    echo "       -n: NMAP options (-A, -O, etc). Defaults to nmap's \"-sV\" option."
 }
 
 
@@ -94,9 +94,7 @@ if [[ -d "${log_dir}/udir/" ]]; then
     mv "${log_dir}/udir/" "${log_dir}/backup/udir-$(date "+%Y%m%d-%H%M%S")/"
 fi 
 
-rm -rf "${log_dir}/ndir/"
 mkdir -p "${log_dir}/ndir/"
-rm -rf "${log_dir}/udir/"
 mkdir -p "${log_dir}/udir/"
 
 while read ip; do
